@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "breadcrumb-login.component.scss"
+    ],
+    "names": [],
+    "file": "breadcrumb-login.component.css"
+}

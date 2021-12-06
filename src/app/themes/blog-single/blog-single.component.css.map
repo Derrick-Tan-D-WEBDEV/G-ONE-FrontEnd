@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "blog-single.component.scss"
+    ],
+    "names": [],
+    "file": "blog-single.component.css"
+}

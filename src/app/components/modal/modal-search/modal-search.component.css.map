@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "modal-search.component.scss"
+    ],
+    "names": [],
+    "file": "modal-search.component.css"
+}

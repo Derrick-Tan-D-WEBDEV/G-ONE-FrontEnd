@@ -1,0 +1,54 @@
+/* You can add global styles to this file, and also import other style files */
+/**Lottie Player**/
+.lottie-center{
+    display:flex;
+    justify-content: center;
+}
+
+/** Line Management **/
+.oneline{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    text-align:justify;
+}
+
+.threeline{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* number of lines to show */
+    -webkit-box-orient: vertical;
+    text-align:justify;
+}
+
+.card .card-body{
+    padding:0!important;
+}
+
+/** Scroll Bar **/
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #383838; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #1e1e20; 
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #2a2a2b; 
+}
+
+
+section{
+    padding: 80px 0 50px 0;
+}

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "modal-menu.component.scss"
+    ],
+    "names": [],
+    "file": "modal-menu.component.css"
+}

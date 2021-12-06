@@ -1,0 +1,74 @@
+<p-toast></p-toast>
+<section class="wallet-connect-area">
+    <div class="container">
+        <div class="row justify-content-left" >
+            <div class="col-12 col-md-6 col-lg-6" style="height:800px; max-height:800px; overflow-y: auto;">
+                <!-- Intro -->
+                <div class="intro text-left mb-4">
+                    <span>All Ergonomics Content</span>
+                    <h3 class="mt-3 mb-0">Here is all the content!</h3>
+                    
+                </div>
+                <ng-container *ngFor="let ec of ergo_content">
+                    <div class="card mt-4"  pDraggable="ec"  (onDragStart)="dragStart(ec)" (onDragEnd)="dragEnd()">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-4">
+                                    <img class="img-fluid" title="{{ec.title}}" src="{{ec.path_url}}" style="width:80px"/>
+                                </div>
+                                <div class="col-8">
+                                    <h4 class="oneline">{{ec.title}}</h4>
+                                    <p class="oneline">{{ec.content}}</p>
+                                    <button class="btn btn-bordered-white ml-1 mt-2" type="submit"><i _ngcontent-vxh-c16="" class="icon-pencil mr-md-2"></i></button>
+                                    <button class="btn btn-bordered-white ml-1 mt-2" type="submit">Delete</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+                <ngx-loading [show]="trlData" [fullScreenBackdrop]="true"></ngx-loading>
+
+            </div>
+            <div class="col-12 col-md-6 col-lg-6" style="height:800px; max-height:800px; overflow-y: auto;" pDroppable="ec" (onDrop)="drop()">
+                <div >
+                    <!-- Intro -->
+                    <div class="intro text-left mb-4">
+                        <span>Ergonomics Sequence</span>
+                        <h3 class="mt-3 mb-0">Drag into here!</h3>
+                        
+                    </div>
+                    <ng-container *ngFor="let ec of selectedErgoContents; let i = index">
+                        <div class="card mt-4" >
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <img class="img-fluid" title="{{ec?.ergo_content?.title}}" src="{{ec?.ergo_content?.path_url}}" style="width:80px"/>
+                                    </div>
+                                    <div class="col-8">
+                                        <h4 class="oneline">{{ec?.ergo_content?.title}}</h4>
+                                        <p class="oneline">{{ec?.ergo_content?.content}}</p>
+                                        <button class="btn btn-bordered-white ml-1 mt-2" type="submit" (click)="arrayremove(selectedErgoContents,i)">Remove</button>
+
+                                        <button class="btn btn-bordered-white btn-sm ml-1 mt-2" type="submit" *ngIf="i != 0" (click)="arraymove(selectedErgoContents,i,i-1)">↑</button>
+                                        <button class="btn btn-bordered-white btn-sm ml-1 mt-2" type="submit" *ngIf="selectedErgoContents.length != i" (click)="arraymove(selectedErgoContents,i,i+1)">↓</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+                <ngx-loading [show]="trlDataSequence" [fullScreenBackdrop]="true"></ngx-loading>
+            </div>
+            <div class="col-12 col-md-6 col-lg-6">
+
+            </div>
+            <div class="col-12 col-md-6 col-lg-6">
+                <ngx-loading [show]="trlDataSequence" [fullScreenBackdrop]="true"></ngx-loading>
+                <br>
+                <button class="btn ml-1 mt-2" type="submit" (click)="saveSequence()">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+
+</section>

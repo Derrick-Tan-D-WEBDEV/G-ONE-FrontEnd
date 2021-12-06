@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "author-section.component.scss"
+    ],
+    "names": [],
+    "file": "author-section.component.css"
+}
