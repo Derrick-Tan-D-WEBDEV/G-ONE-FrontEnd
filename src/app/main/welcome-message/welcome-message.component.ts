@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-welcome-message',
@@ -8,10 +8,11 @@ import { Router } from '@angular/router';
 })
 export class WelcomeMessageComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private router:Router,private route:ActivatedRoute) { }
 
   ngOnInit(): void {
-    setTimeout(()=>{ this.router.navigate(['user/dashbaord']);}, 2500);
+    if(this.route.snapshot.paramMap.get('route') == "home")
+      setTimeout(()=>{ this.router.navigate(['/']);}, 2500);
   }
 
 }

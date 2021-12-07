@@ -7,11 +7,13 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./header-section.component.scss']
 })
 export class HeaderSectionComponent implements OnInit {
-  id:any;
+  id:any = null;
   constructor(private _authService:AuthService) { }
 
   ngOnInit(): void {
-    this.id = this._authService.getUserID();
+    if(this._authService.getUserID())
+      this.id = this._authService.getUserID();
+
   }
 
 }

@@ -19,8 +19,8 @@
                                 <div class="col-8">
                                     <h4 class="oneline">{{ec.title}}</h4>
                                     <p class="oneline">{{ec.content}}</p>
-                                    <button class="btn btn-bordered-white ml-1 mt-2" type="submit"><i _ngcontent-vxh-c16="" class="icon-pencil mr-md-2"></i></button>
-                                    <button class="btn btn-bordered-white ml-1 mt-2" type="submit">Delete</button>
+                                    <button class="btn btn-bordered-white ml-1 mt-2" type="submit" [routerLink]="['/user/ergo-update/'+ec.id]"><i _ngcontent-vxh-c16="" class="icon-pencil mr-md-2"></i></button>
+                                    <button class="btn btn-bordered-white ml-1 mt-2" type="submit" (click)="deleteErgoContent(ec.id)">Delete</button>
                                 </div>
                             </div>
                         </div>

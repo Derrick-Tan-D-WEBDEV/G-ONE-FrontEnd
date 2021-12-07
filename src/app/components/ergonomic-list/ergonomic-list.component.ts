@@ -13,7 +13,7 @@ import { SharedService } from 'src/app/services/shared.service';
 })
 export class ErgonomicListComponent implements OnInit {
   getAllErgonomicsSubscription:Subscription = this._sharedService.getClickEvent().subscribe(()=>{
-    this.getAllErgonomics();
+    this.getAllErgoContent();
   });
   trlData:boolean = false;
   trlDataSequence:boolean = false;
@@ -27,7 +27,7 @@ export class ErgonomicListComponent implements OnInit {
   constructor(private _ergonomicsService:ErgonomicsService, private _authService:AuthService, private _messageService:MessageService , private _sharedService:SharedService) { }
 
   ngOnInit(): void {
-    this.getAllErgonomics();
+    this.getAllErgoContent();
     this.getAllErgoSequence();
     this._messageService.add({severity:'error', summary:'Fail to get all dbData by user!', detail:"Code: "});
 
@@ -65,8 +65,30 @@ export class ErgonomicListComponent implements OnInit {
     return index;
   }
 
+  deleteErgoContent(id:any){
+    this.trlData = true;
+
+    this._ergonomicsService.deleteErgoContent(1,"iampublic",id).subscribe((response) => {
+      if(response.status){
+        this.trlData = false;
+        this._messageService.add({severity:'success', summary:'Success delete ergo by user!', detail:"Code: " + response.code});
+        this.getAllErgoContent();
+        this.token = this._authService.getAccessToken();
+      }
+      else{
+        this.token = this._authService.getAccessToken();
+        this._messageService.add({severity:'error', summary:'Fail to delete ergo by user!', detail:"Please remove it from the sequence first!"});
+        this.trlData = false;
+      }
+    },
+    error => {
+      this._messageService.add({severity:'error', summary:'Fail to delete ergo by user!', detail: "Server Error!"});
+      this.trlData = false;
+    });
   
-  getAllErgonomics(){
+  }
+  
+  getAllErgoContent(){
     this.trlData = true;
 
     this._ergonomicsService.getAllErgoContent(1,"iampublic").subscribe((response) => {

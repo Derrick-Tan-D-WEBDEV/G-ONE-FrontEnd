@@ -62,4 +62,28 @@ export class ErgonomicsService {
       }),
       catchError(this.handleError));
   }
+
+  public updateErgoContent(id:any,token:any,values:any,ergoContentId:any):Observable<any>{
+    return this.httpClient.post<any>(this.base_path+'ergo_content/updateErgoContent',{id,token,values,ergoContentId}).pipe(
+      map((res) => {
+          return res;
+      }),
+      catchError(this.handleError));
+  }
+
+  public getOneErgoContent(id:any,token:any,ergoContentId:any):Observable<any>{
+    return this.httpClient.post<any>(this.base_path+'ergo_content/getOneErgoContent',{id,token,ergoContentId}).pipe(
+      map((res) => {
+          return res;
+      }),
+      catchError(this.handleError));
+  }
+
+  public deleteErgoContent(id:any,token:any,ergoContentId:any):Observable<any>{
+    return this.httpClient.post<any>(this.base_path+'ergo_content/deleteErgoContent',{id,token,ergoContentId}).pipe(
+      map((res) => {
+          return res;
+      }),
+      catchError(this.handleError));
+  }
 }

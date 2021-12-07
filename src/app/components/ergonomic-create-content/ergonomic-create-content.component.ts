@@ -26,7 +26,7 @@ export class ErgonomicCreateContentComponent implements OnInit {
   constructor(private _sharedService:SharedService, private formBuilder:FormBuilder,private _messageService: MessageService, private _authService:AuthService, private router:Router, private _ergonomicsService:ErgonomicsService) { }
 
   ngOnInit(): void {
-    //asd
+    
   }
 
   create(values:any){
